@@ -1,8 +1,8 @@
-function [x_k, complexity] = steepestdescent(A, b, x_0, c_1, n, beta)
+function x_k = steepestdescent(A, b, x_0, c_1, n, beta)
 %%initialisation 
 x_k = x_0;
 %%define beta set and an empty set A
-complexity = 0
+complexity = 0;
 B = zeros(1,n);
 for i = 1:n
     B(i) = beta^(i-1);
@@ -11,8 +11,8 @@ end
 for k = 1:n
     p_k = -(A*x_k - b);
     norm(p_k);
-    complexity = complexity + 1;
     if norm(p_k) <= c_1
+        complexity
         return
     else
         %%choose a_k in this list such that the first Wolfe condition is
@@ -23,6 +23,7 @@ for k = 1:n
         end
         a_k = max(Alpha);
         x_k = x_k + a_k*p_k;
+        complexity = complexity + 1;
     end
 end
 end
