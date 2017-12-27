@@ -5,4 +5,5 @@ Algorithms used in numerical analysis. Topics covered are:
   - Unconstrained Optimisation
   - Constrained Optimisation
   
-  
+Full Description of Algorithms are here:
+https://www.overleaf.com/read/vyrzkpngjysp 
