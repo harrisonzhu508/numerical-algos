@@ -6,28 +6,33 @@ for i=(2:N)
     T(i-1,i)=-1;
 end
 
-%{
+
+T=sparse(T);
+
+
 %a
 n=N;    
 A=(N+1)^2*T;
-%}
+
+
 
 %{
 %b
 n=N*N;  
-A=kron(eye(N),T)+kron(T,eye(N));
-A=(N+1)^2*A;
+A=sparse(kron(eye(N),T))+sparse(kron(T,eye(N)));
+A=(N+1)^2*sparse(A);
 %}
 
-
+%{
 %c
 n=N*N*N;
-A=kron(kron(eye(N),eye(N)),T)+kron(kron(eye(N),T),eye(N))+kron(kron(T,eye(N)),eye(N));
-A=(N+1)^2*A;
-
+A=kron(sparse(kron(eye(N),eye(N))) ,T)+ kron(sparse(kron(eye(N),T)),eye(N)) + kron(sparse( kron(T,eye(N))),eye(N));
+A=(N+1)^2*sparse(A);
+%}
 
 b=(ones(1,n))';
 x=ones(n,1);
+
 
 %setting
 c=0.0001;
@@ -52,7 +57,8 @@ while (counter<=N*N*2)%NORM>tol)
     alpha=NORM*NORM/(p'*A*p);
     x = x - alpha*p;
 end
+q=1/(n+1):1/(n+1):1-1/(n+1);
 true_ans=A\b;
 x_final=x;
-plot(x_final,'DisplayName','x_{final}');hold on;plot(true_ans,'DisplayName','x_{true}');legend show;grid on; hold off
+plot(q,x_final,'DisplayName','x_{final}');hold on;plot(q,true_ans,'DisplayName','x_{true}');legend show;grid on
 end
