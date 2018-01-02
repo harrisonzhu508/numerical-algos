@@ -1,5 +1,5 @@
 ODE Algorithms
 
-- Euler Scheme
-- Steepest Descent for the problem $f(x) = 0.5*x^{T}Ax - bx$
+- Euler Scheme on Van der Pol Oscillator
+- RK4 on Van der Pol Oscillator
 - 
