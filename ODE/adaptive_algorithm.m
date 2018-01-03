@@ -1,4 +1,4 @@
-function adaptive_algorithm(T,N,y0,TOL)
+function yvals = adaptive_algorithm(T,N,y0,TOL)
 %Initialisation
 %Calculate fitted values with T/N
 h =  T/N;
@@ -9,7 +9,8 @@ endpt = 0;
 c = 0; %keep count of optimal steps
 count = zeros(N,1); %keep track of optimal steps
 hopt = h;
-yvals = zeros(N,1)
+yvals = zeros(N,2);
+y = [0,0];
 
 %while loop for adative algorithm
 while endpt <= T
@@ -38,7 +39,4 @@ end
     
 end
 
-
-
-end
 

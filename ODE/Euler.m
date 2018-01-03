@@ -1,10 +1,7 @@
 %Euler 1 step approximation function
 %------------------------------------------------------------------------
-function yvals = Euler(h,y)
-%initialisation
-y1 = [0,0]
-
+function y1 = Euler(h,y0)
 %calculating the approximation point
-y1 = y + h*[y(2), (1 - y(1)^2)*y(2) - y(1)];
+y1 = y0 + h*[y0(2), (1 - y0(1)^2)*y0(2) - y0(1)];
 
 end
