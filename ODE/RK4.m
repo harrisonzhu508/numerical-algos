@@ -19,16 +19,16 @@ for i = 2:N
 end
 
 %%plot
-plot(t_range, transpose(yvals(:,1)))
+plot(t_range, transpose(yvals(:,1)));
 
-%interactive plot
-curve = animatedline('Color','k');
-set(gca, 'XLim', [0 T], 'YLim', [-10,10]);
-grid on;
-for i = 1:N+1
-   addpoints(curve, t_range(i),yvals(i,1));
-   drawnow
-end
+%uncomment for interactive plot
+%curve = animatedline('Color','k');
+%set(gca, 'XLim', [0 T], 'YLim', [-10,10]);
+%grid on;
+%for i = 1:N+1
+%   addpoints(curve, t_range(i),yvals(i,1));
+%   drawnow
+%end
 
 
 

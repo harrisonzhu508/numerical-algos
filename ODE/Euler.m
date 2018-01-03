@@ -16,13 +16,15 @@ for n = 1:N
     k = k + 1;
 end
 %%plot
-plot(yvals(:,1), yvals(:,2))
-curve = animatedline('Color','k');
-set(gca, 'XLim', [0 T], 'YLim', [-10,10]);
-grid on;
-for i = 1:N+1
-   addpoints(curve, t_range(i),yvals(i,1));
-   drawnow
-end
+plot(t_range, yvals(:,1))
+
+%Uncomment for interactive plot
+%curve = animatedline('Color','k');
+%set(gca, 'XLim', [0 T], 'YLim', [-10,10]);
+%grid on;
+%for i = 1:N+1
+%   addpoints(curve, t_range(i),yvals(i,1));
+%   drawnow
+%end
 
 end
