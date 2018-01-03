@@ -9,7 +9,7 @@ y1 = [0,0];
 %Calculate coefficients and then calculate y(t1) = y(t0 + h) ~ y1
 k1 = func(y);
 k2 = func(y + h*0.5*k1);
-y1 = y + h*(k1 + k2);
+y1 = y + h*(k2);
 
 
 end

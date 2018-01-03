@@ -19,7 +19,6 @@ while endpt <= T
     if NORM <= TOL %start new time step with y1 as starting point
         %updates
         c = c + 1; %increase count of steps
-        h = hopt;
         yvals(c,:) = y1_fitted_Euler; %update new values
         endpt = endpt + hopt;
         count(c) = hopt + count(c-1);
@@ -29,6 +28,7 @@ while endpt <= T
         y1_fitted_Euler = Euler(h,y);
         NORM = norm(y1_fitted_RK2 - y1_fitted_Euler);
         hopt = h*(TOL/NORM)^(1/2);
+        h = hopt;
     else %if not, repeat time step
         y1_fitted_RK2 = RK2(h,y);
         y1_fitted_Euler = Euler(h,y);
