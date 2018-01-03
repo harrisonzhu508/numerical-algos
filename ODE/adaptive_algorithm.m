@@ -22,7 +22,7 @@ while endpt <= T
         h = hopt;
         yvals(c,:) = y1_fitted_Euler; %update new values
         endpt = endpt + hopt;
-        count(c) = hopt;
+        count(c) = hopt + count(c-1);
         %new start
         y = y1_fitted_Euler; %new starting point
         y1_fitted_RK2 = RK2(h,y);
@@ -37,10 +37,7 @@ while endpt <= T
         h = hopt;
     end
 end
-
-t_range = linspace(0,T,length(yvals));
-
-plot(t_range, transpose(yvals(:,1)));
+plot(count, transpose(yvals(:,1)));
 end
         
         
