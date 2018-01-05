@@ -2,10 +2,10 @@ function yvals = adaptive_algorithm(T,N,y0,TOL)
 %Initialisation
 %Calculate fitted values with T/N
 h = T/N;
-y1_fitted_RK2 = [0,0]
-y1_fitted_Euler = [0,0]
-NORM = 3
-hopt = 0
+y1_fitted_RK2 = [0,0];
+y1_fitted_Euler = [0,0];
+NORM = 3;
+hopt = 0;
 c = 1; %keep count of optimal steps
 count = zeros(N,1); %keep track of optimal steps
 yvals = zeros(N,2);
