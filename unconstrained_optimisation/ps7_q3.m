@@ -59,3 +59,6 @@ r2
 x(n/2)
 plot(q,x_final,'DisplayName','x_{final}');hold on;plot(q,true_ans,'DisplayName','x_{true}');legend show;grid on
 end
+%-----------------------------------------------------------------------------------------------------------------------
+%Testrun
+%ps7_q3(10,0.0001)
